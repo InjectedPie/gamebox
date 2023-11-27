@@ -3,6 +3,7 @@ package me.nikl.gamebox.inventory.shop;
 import me.nikl.gamebox.GameBox;
 import me.nikl.gamebox.GameBoxLanguage;
 import me.nikl.gamebox.GameBoxSettings;
+import me.nikl.gamebox.NmsUtility_1_20_R2;
 import me.nikl.gamebox.events.EnterGameBoxEvent;
 import me.nikl.gamebox.inventory.ClickAction;
 import me.nikl.gamebox.inventory.GuiManager;
@@ -69,7 +70,7 @@ public class ShopManager {
   private void loadShopButton() {
     ItemStack mainItem = ItemStackUtility.getItemStack(shop.getString("shop.button.materialData", ItemStackUtility.CHEST_MINECART.toString()));
     if (shop.getBoolean("shop.button.glow"))
-      mainItem = NmsFactory.getNmsUtility().addGlow(mainItem);
+      mainItem = new NmsUtility_1_20_R2().addGlow(mainItem);
     mainButton = new Button(mainItem);
     ItemMeta meta = mainItem.getItemMeta();
     if (shop.isString("shop.button.displayName")) {
@@ -132,9 +133,9 @@ public class ShopManager {
       GameBox.openingNewGUI = false;
 
       if (closed) {
-        NmsFactory.getNmsUtility().updateInventoryTitle(whoClicked, gameBox.lang.SHOP_IS_CLOSED);
+        new NmsUtility_1_20_R2().updateInventoryTitle(whoClicked, gameBox.lang.SHOP_IS_CLOSED);
       } else {
-        NmsFactory.getNmsUtility().updateInventoryTitle(whoClicked, gameBox.lang.SHOP_TITLE_MAIN_SHOP.replace("%player%", whoClicked.getDisplayName()));
+        new NmsUtility_1_20_R2().updateInventoryTitle(whoClicked, gameBox.lang.SHOP_TITLE_MAIN_SHOP.replace("%player%", whoClicked.getDisplayName()));
       }
       return true;
     } else if (categories.containsKey(args[0])) {
@@ -149,7 +150,7 @@ public class ShopManager {
       boolean open = categories.get(args[0]).openPage(whoClicked, page);
       GameBox.openingNewGUI = false;
       if (open) {
-        NmsFactory.getNmsUtility().updateInventoryTitle(whoClicked, gameBox.lang.SHOP_TITLE_PAGE_SHOP.replace("%page%", String.valueOf(page + 1)));
+        new NmsUtility_1_20_R2().updateInventoryTitle(whoClicked, gameBox.lang.SHOP_TITLE_PAGE_SHOP.replace("%page%", String.valueOf(page + 1)));
         return true;
       } else {
         return false;

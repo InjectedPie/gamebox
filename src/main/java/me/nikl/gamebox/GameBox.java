@@ -75,11 +75,6 @@ public class GameBox extends JavaPlugin {
   @Override
   public void onEnable() {
     GameBoxSettings.defineGameBoxData(this);
-    if ((NmsFactory.getNmsUtility()) == null) {
-      sendVersionError();
-      Bukkit.getPluginManager().disablePlugin(this);
-      return;
-    }
 
     this.gameRegistry = new GameRegistry(this);
 
@@ -382,8 +377,9 @@ public class GameBox extends JavaPlugin {
   }
 
   private void sendVersionError() {
+    String version = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
     Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "+ - + - + - + - + - + - + - + - + - + - + - + - + - + - +");
-    Bukkit.getConsoleSender().sendMessage(ChatColor.RED + " Your server version is not compatible with this plugin!");
+    Bukkit.getConsoleSender().sendMessage(ChatColor.RED + " Your server version " + version + " is not compatible with this plugin!");
     Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "   Please make sure that you have the newest version:");
     Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "   https://www.spigotmc.org/resources/37273/");
     Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "+ - + - + - + - + - + - + - + - + - + - + - + - + - + - +");

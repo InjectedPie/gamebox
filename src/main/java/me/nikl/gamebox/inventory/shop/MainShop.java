@@ -1,6 +1,7 @@
 package me.nikl.gamebox.inventory.shop;
 
 import me.nikl.gamebox.GameBox;
+import me.nikl.gamebox.NmsUtility_1_20_R2;
 import me.nikl.gamebox.inventory.ClickAction;
 import me.nikl.gamebox.inventory.GuiManager;
 import me.nikl.gamebox.inventory.button.Button;
@@ -39,7 +40,7 @@ class MainShop extends Shop {
         continue;
       }
       if (category.getBoolean("glow")) {
-        buttonItem = NmsFactory.getNmsUtility().addGlow(buttonItem);
+        buttonItem = new NmsUtility_1_20_R2().addGlow(buttonItem);
       }
       Button button = new Button(buttonItem);
       ItemMeta meta = button.getItemMeta();

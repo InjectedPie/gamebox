@@ -8,6 +8,7 @@ import me.nikl.gamebox.commands.GameBoxCommands;
 import me.nikl.gamebox.inventory.gui.game.StartMultiplayerGamePage;
 import me.nikl.nmsutilities.NmsFactory;
 import me.nikl.nmsutilities.NmsUtility;
+import me.nikl.nmsutilities.NmsUtility_1_20_R1;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -36,7 +37,7 @@ public class InvitationHandler extends BukkitRunnable {
   public InvitationHandler(GameBox plugin) {
     pluginManager = plugin.getPluginManager();
     this.plugin = plugin;
-    this.nmsUtility = NmsFactory.getNmsUtility();
+    this.nmsUtility = new NmsUtility_1_20_R1();
     this.lang = plugin.lang;
     cacheClickMessageParts();
     this.runTaskTimerAsynchronously(plugin, 20, 10);

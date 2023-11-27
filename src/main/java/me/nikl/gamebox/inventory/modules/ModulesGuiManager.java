@@ -18,6 +18,7 @@ import me.nikl.gamebox.utility.Permission;
 import me.nikl.gamebox.utility.versioning.SemanticVersion;
 import me.nikl.nmsutilities.NmsFactory;
 import me.nikl.nmsutilities.NmsUtility;
+import me.nikl.nmsutilities.NmsUtility_1_20_R1;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -31,7 +32,7 @@ import java.util.*;
 import java.util.logging.Level;
 
 public class ModulesGuiManager implements Listener {
-    private NmsUtility nms = NmsFactory.getNmsUtility();
+    private NmsUtility nms = new NmsUtility_1_20_R1();
     private GameBox gameBox;
     private Button mainButton;
     private GuiManager guiManager;

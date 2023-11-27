@@ -13,6 +13,7 @@ import me.nikl.gamebox.inventory.shop.ShopManager;
 import me.nikl.gamebox.utility.Permission;
 import me.nikl.nmsutilities.NmsFactory;
 import me.nikl.nmsutilities.NmsUtility;
+import me.nikl.nmsutilities.NmsUtility_1_20_R1;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -43,7 +44,7 @@ public class GuiManager {
 
   public GuiManager(GameBox plugin) {
     this.plugin = plugin;
-    this.nms = NmsFactory.getNmsUtility();
+    this.nms = new NmsUtility_1_20_R1();
     this.lang = plugin.lang;
     this.gameGuis = new HashMap<>();
     this.mainGui = new MainGui(plugin, this);

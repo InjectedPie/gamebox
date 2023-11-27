@@ -1,6 +1,7 @@
 package me.nikl.gamebox.utility;
 
 import me.nikl.gamebox.GameBox;
+import me.nikl.gamebox.NmsUtility_1_20_R2;
 import me.nikl.nmsutilities.NmsFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -99,7 +100,7 @@ public class ItemStackUtility {
       meta.setLore(StringUtility.color(section.getStringList(LORE)));
     }
     if (section.getBoolean(GLOW, false)) {
-      toReturn = NmsFactory.getNmsUtility().addGlow(toReturn);
+      toReturn = new NmsUtility_1_20_R2().addGlow(toReturn);
     }
     toReturn.setItemMeta(meta);
     return toReturn;

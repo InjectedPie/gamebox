@@ -38,6 +38,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.yaml.snakeyaml.DumperOptions;
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.CustomClassLoaderConstructor;
 import org.yaml.snakeyaml.representer.Representer;
@@ -130,8 +132,8 @@ public class ModulesManager implements Listener {
 
     private void loadModuleSettings() {
         //Yaml yaml = new Yaml(new Constructor(ModulesSettings.class));
-        CustomClassLoaderConstructor constructor = new CustomClassLoaderConstructor(ModulesSettings.class.getClassLoader());
-        Representer representer = new Representer();
+        CustomClassLoaderConstructor constructor = new CustomClassLoaderConstructor(ModulesSettings.class.getClassLoader(), new LoaderOptions());
+        Representer representer = new Representer(new DumperOptions());
         representer.getPropertyUtils().setSkipMissingProperties(true);
         Yaml yaml = new Yaml(constructor, representer);
         try {
@@ -333,7 +335,7 @@ public class ModulesManager implements Listener {
     }
 
     private void dumpModuleSettings() {
-        CustomClassLoaderConstructor constructor = new CustomClassLoaderConstructor(ModulesSettings.class.getClassLoader());
+        CustomClassLoaderConstructor constructor = new CustomClassLoaderConstructor(ModulesSettings.class.getClassLoader(), new LoaderOptions());
         Yaml yaml = new Yaml(constructor);
         try {
             yaml.dump(modulesSettings, new FileWriter(modulesFile));

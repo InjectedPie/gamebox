@@ -7,6 +7,7 @@ import me.nikl.gamebox.inventory.gui.game.GameGuiPage;
 import me.nikl.gamebox.inventory.shop.Page;
 import me.nikl.nmsutilities.NmsFactory;
 import me.nikl.nmsutilities.NmsUtility;
+import me.nikl.nmsutilities.NmsUtility_1_20_R1;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -26,7 +27,7 @@ public class InventoryTitleMessenger extends BukkitRunnable {
 
   public InventoryTitleMessenger(GameBox gameBox) {
     this.gameBox = gameBox;
-    nmsUtility = NmsFactory.getNmsUtility();
+    nmsUtility = new NmsUtility_1_20_R1();
     runTaskTimer(gameBox, 10, 10);
   }
 

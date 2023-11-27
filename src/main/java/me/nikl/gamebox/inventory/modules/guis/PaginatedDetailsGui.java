@@ -16,6 +16,7 @@ import me.nikl.gamebox.module.data.VersionData;
 import me.nikl.gamebox.utility.versioning.SemanticVersion;
 import me.nikl.nmsutilities.NmsFactory;
 import me.nikl.nmsutilities.NmsUtility;
+import me.nikl.nmsutilities.NmsUtility_1_20_R1;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryAction;
@@ -36,7 +37,7 @@ public class PaginatedDetailsGui {
     private GuiManager guiManager;
     private List<ModuleDetailsPage> pages = new ArrayList<>();
     private int gridSize = 54;
-    private NmsUtility nms = NmsFactory.getNmsUtility();
+    private NmsUtility nms = new NmsUtility_1_20_R1();
     private CloudModuleDataWithVersions data;
     private CloudService cloudService;
     private long lastApiCall = 0L;

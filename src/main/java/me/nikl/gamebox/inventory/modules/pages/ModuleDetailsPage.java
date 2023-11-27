@@ -2,6 +2,7 @@ package me.nikl.gamebox.inventory.modules.pages;
 
 import me.nikl.gamebox.GameBox;
 import me.nikl.gamebox.GameBoxSettings;
+import me.nikl.gamebox.NmsUtility_1_20_R2;
 import me.nikl.gamebox.inventory.ClickAction;
 import me.nikl.gamebox.inventory.GuiManager;
 import me.nikl.gamebox.inventory.button.AButton;
@@ -25,7 +26,7 @@ public class ModuleDetailsPage extends AGui {
     private int previousPageSlot = 48;
     private int nextPageSlot = 50;
     private String moduleId;
-    private NmsUtility nms = NmsFactory.getNmsUtility();
+    private NmsUtility nms = new NmsUtility_1_20_R2();
 
     public ModuleDetailsPage(GameBox plugin, GuiManager guiManager, int slots, String[] args, String moduleId, int pageNum, String title) {
         super(plugin, guiManager, slots, args, title.replaceAll("%page%", String.valueOf(pageNum)));
